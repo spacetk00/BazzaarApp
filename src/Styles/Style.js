@@ -51,17 +51,21 @@ const banner = StyleSheet.create({
 
 const blocoProduto = StyleSheet.create({
     container: {
-        marginBottom: 30,
+        marginVertical: '5%',
         alignContent: 'center',
         marginHorizontal: 8,
         shadowColor: 'black',
         shadowOffset: .1,
     },
     title: {
+        alignSelf: 'center',
+        width: '50%',
         color: 'black',
         marginBottom: 20,
         fontWeight: 'bold',
         textAlign: 'center',
+        backgroundColor: 'white',
+        elevation: 10
     },
     subContainer: {
         justifyContent: 'space-around',
@@ -82,15 +86,11 @@ const blocoProduto = StyleSheet.create({
 
 const sobre = StyleSheet.create({
     container: {
-        display: 'flex',
-        backgroundColor: 'orange',
         width: '90%',
-        height: '10%',
+        height: '35%',
         flexDirection: 'row',
-        marginRight: '5%',
-        marginLeft: '5%',
-        marginBottom: 20,
-        alignContent: 'stretch',
+        marginTop: '5%',
+        alignSelf: 'center'
     },
     title: {
         fontSize: 11,
@@ -114,15 +114,12 @@ const sobre = StyleSheet.create({
         color: '#E95E3F',
     },
     imagem: {
-        flex: 1,
         width: '100%',
         height: '100%',
         resizeMode: 'stretch',
-        
     },
     blocoTexto: {
         width: '50%',
-        flex: 1,
         backgroundColor: '#444444',
         padding: 10,
     },
@@ -134,35 +131,37 @@ const sobre = StyleSheet.create({
 const extra = StyleSheet.create({
     container: {
         width: '90%',
-        height: '20%',
-        flexDirection: 'row',
-        marginRight: '5%',
-        marginLeft: '5%',
-        marginBottom: 20,
+        height: '30%',
+        alignContent: 'center',
+        marginVertical: '5%',
+        elevation: 5
     },
     title: {
-        fontSize: 11,
-        fontWeight: 'bold',
+        alignSelf: 'center',
+        width: '50%',
         color: 'black',
-        marginBottom: 5,
+        marginBottom: 20,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        backgroundColor: 'white',
+        elevation: 10
     },
     subContainer: {
-        marginVertical: 4,
+        height: '50%',
         flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-    redeImg: {
-        width: 15,
-        height: 15,
-        marginRight: 5,
+    pagamentoBtn: {
+        width: '15%',
+        height: '70%',
+        alignItems: 'center',
+        marginHorizontal: '2%'
     },
     pagamentoImg: {
-        width: 25,
-        height: 15,
-        marginRight: 5,
-    },
-    bloco: {
-        width: '50%',
-        padding: 10,
+        resizeMode: 'contain',
+        width: '100%',
+        height: '100%'
     },
 });
 

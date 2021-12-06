@@ -1,35 +1,60 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import Index from './src/Pages/Main';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 import Header from './src/Components/Header';
 
-import Forum from './src/Pages/Male/forum';
-import Lacoste from './src/Pages/Male/lacoste';
-import SecFloor from './src/Pages/Male/secfloor';
+import Home from './src/Pages/Main/home';
+import Categorias from './src/Pages/Main/categorias';
+import Sobre from './src/Pages/Main/sobre';
+import Cartao from './src/Pages/Main/cartao';
 
-import Guess from './src/Pages/Female/guess';
-import Hering from './src/Pages/Female/hering';
-import Malwee from './src/Pages/Female/malwee';
+const Tab = createBottomTabNavigator();
 
-/* Criamos nosso navegador com a variavel Stack */
-const Stack = createStackNavigator();
+const icons = {
+  Home: {
+    name: 'home-outline',
+    color: '#900'
+  },
+  Categorias: {
+    name: 'list-outline',
+    color: '#900'
+  },
+  Sobre: {
+    name: 'call-outline',
+    color: '#900'
+  },
+  Cartao: {
+    name: 'card-outline',
+    color: '#900'
+  },
+};
 
-export default function App() {
+function App() {
   return (
     <NavigationContainer>
       <Header></Header>
-      <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={Index}>
-        <Stack.Screen name="Index" component={Index} />
+      <Tab.Navigator
+        initialRouteName={Home}
+        screenOptions={({route}) => ({
+          tabBarIcon: ({color, size}) => {
+            const {name} = icons[route.name];
+            return <Icon name={name} color={color} size={size} />;
+          }, headerShown: false,
+            tabBarInactiveTintColor: 'lightgrey', 
+            tabBarActiveTintColor: 'white',
+            tabBarActiveBackgroundColor: '#E95E3F',
+            tabBarInactiveBackgroundColor: '#444444'
 
-        <Stack.Screen name="Forum" component={Forum} />
-        <Stack.Screen name="Lacoste" component={Lacoste} />
-        <Stack.Screen name="SecFloor" component={SecFloor} />
-
-        <Stack.Screen name="Guess" component={Guess} />
-        <Stack.Screen name="Hering" component={Hering} />
-        <Stack.Screen name="Malwee" component={Malwee} />
-      </Stack.Navigator>
+      })}>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Categorias" component={Categorias} />
+        <Tab.Screen name="Sobre" component={Sobre} />
+        <Tab.Screen name="Cartao" component={Cartao} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
+
+export default App;
